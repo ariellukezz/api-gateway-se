@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Traits\ApiResponser;
-use App\services\SedeService;
+use App\Services\SedeService;
 
 class SedeController extends Controller
 {
@@ -13,7 +13,7 @@ class SedeController extends Controller
     {
         $this->SedeService = $sedeService;
     }
-    
+
 
     public function index()
     {
