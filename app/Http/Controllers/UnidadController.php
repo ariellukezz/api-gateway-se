@@ -2,7 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Traits\ApiResponser;
-use App\services\UnidadService;
+use App\Services\UnidadService;
 
 class UnidadController extends Controller
 {
