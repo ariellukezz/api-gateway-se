@@ -3,6 +3,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UnidadController;
 use App\Http\Controllers\SedeController;
+use App\Http\Controllers\ProgramaController;
 use App\Http\Controllers\PostulanteController;
 use App\Http\Controllers\ConvocatoriaController;
 use App\Http\Controllers\InstitucionOrigenController;
@@ -14,6 +15,12 @@ Route::post('/unidad', [UnidadController::class, 'store']);
 Route::get('/unidad/{id}', [UnidadController::class, 'show']);
 Route::put('/unidad/{id}', [UnidadController::class, 'update']);
 Route::delete('/unidad/{id}', [UnidadController::class, 'destroy']);
+
+Route::get('/programas', [ProgramaController::class, 'index']);     
+Route::post('/programa', [ProgramaController::class, 'store']);
+Route::get('/programa/{id}', [ProgramaController::class, 'show']);
+Route::put('/programa/{id}', [ProgramaController::class, 'update']);
+Route::delete('/programa/{id}', [ProgramaController::class, 'destroy']);
 
 /* Felix */
 Route::get('/sedes', [SedeController::class, 'index']);
