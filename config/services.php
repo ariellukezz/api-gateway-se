@@ -24,6 +24,7 @@ return [
     'postulantes' => [ 'base_uri' => env('POSTULANTES_SERVICE_BASE_URL'), ],
     'convocatorias' => [ 'base_uri' => env('CONVOCATORIAS_SERVICE_BASE_URL'), ],
     'vacantes' => [ 'base_uri' => env('VACANTES_SERVICE_BASE_URL'), ],
+    'pagos' => [ 'base_uri' => env('PAGOS_SERVICE_BASE_URL'), ],
     'institucionorigen' => [ 'base_uri' => env('INSTITUCIONORIGEN_SERVICE_BASE_URL'), ],
 
 ];

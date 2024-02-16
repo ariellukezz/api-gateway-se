@@ -3,6 +3,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UnidadController;
 use App\Http\Controllers\SedeController;
+use App\Http\Controllers\PagoController;
 use App\Http\Controllers\ProgramaController;
 use App\Http\Controllers\PostulanteController;
 use App\Http\Controllers\ConvocatoriaController;
@@ -47,12 +48,12 @@ Route::get('vacante/{id}', [VacanteController::class, 'show']);
 Route::put('vacante/{id}', [VacanteController::class, 'update']);
 Route::delete('vacante/{id}', [VacanteController::class, 'destroy']);
 
+// Route::get('/sedes', [SedeController::class, 'index']);
+// Route::get('/sede/{id}', [SedeController::class, 'show']);
+Route::post('/pago', [PagoController::class, 'store']);
+Route::put('/pago/{id}', [PagoController::class, 'update']);
+// Route::delete('/sede/{id}', [SedeController::class, 'destroy']);
+
 /* Denis */
 Route::get('/postulantes', [PostulanteController::class, 'index']);
 Route::post('/postulante', [PostulanteController::class, 'store']);
-
-
-
-
-
-
