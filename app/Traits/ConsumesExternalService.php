@@ -22,7 +22,7 @@ trait ConsumesExternalService
                 $header['Authorization'] = $this->secret; 
             }
     
-            return $response->json(); // Suponiendo que deseas devolver la respuesta como JSON
+            return $response->json();
         } catch (\Exception $e) {
             return $e->getMessage();
         }

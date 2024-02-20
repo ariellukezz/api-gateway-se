@@ -31,7 +31,6 @@ Route::middleware('client')->group(function () {
 
 
 /* Ariel */
-
 Route::get('/programas', [ProgramaController::class, 'index']);     
 Route::post('/programa', [ProgramaController::class, 'store']);
 Route::get('/programa/{id}', [ProgramaController::class, 'show']);

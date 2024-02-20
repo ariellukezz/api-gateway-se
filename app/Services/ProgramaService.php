@@ -5,11 +5,13 @@ use App\Traits\ConsumesExternalService;
 class ProgramaService {
 
     public $baseUri;
+    public $secret;
     use ConsumesExternalService;
 
     public function __construct()
     {
         $this->baseUri = config('services.unidades.base_uri');
+        $this->secret = config('services.unidades.secret');
     }
 
     public function obtenerProgramas(){
