@@ -15,10 +15,9 @@ trait ConsumesExternalService
 
             if (!is_null($body)) {  
                 $response = Http::$method($url, $body);
-                return $response;
+                
             } else {
                 $response = Http::$method($url);
-                return $response;
             }
             
             
