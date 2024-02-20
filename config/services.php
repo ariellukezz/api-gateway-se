@@ -19,7 +19,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
-    'unidades' => [ 'base_uri' => env('UNIDADES_SERVICE_BASE_URL'), ],
+    'unidades' => [ 
+        'base_uri' => env('UNIDADES_SERVICE_BASE_URL'), 
+        'secret' => env('UNIDADES_SERVICE_SECRET'),
+    ],
     'sedes' => [ 'base_uri' => env('SEDES_SERVICE_BASE_URL'), ],
     'postulantes' => [ 'base_uri' => env('POSTULANTES_SERVICE_BASE_URL'), ],
     'convocatorias' => [ 'base_uri' => env('CONVOCATORIAS_SERVICE_BASE_URL'), ],

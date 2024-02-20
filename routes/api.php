@@ -10,12 +10,27 @@ use App\Http\Controllers\ConvocatoriaController;
 use App\Http\Controllers\InstitucionOrigenController;
 use App\Http\Controllers\VacanteController;
 
+use Laravel\Passport\Passport;
+
+// Passport::routes();
+
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
+Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
+
 /* Ariel */
-Route::get('/unidades', [UnidadController::class, 'index']);
-Route::post('/unidad', [UnidadController::class, 'store']);
-Route::get('/unidad/{id}', [UnidadController::class, 'show']);
-Route::put('/unidad/{id}', [UnidadController::class, 'update']);
-Route::delete('/unidad/{id}', [UnidadController::class, 'destroy']);
+Route::middleware('client')->group(function () {
+    Route::get('/unidades', [UnidadController::class, 'index']);
+    Route::post('/unidad', [UnidadController::class, 'store']);
+    Route::get('/unidad/{id}', [UnidadController::class, 'show']);
+    Route::put('/unidad/{id}', [UnidadController::class, 'update']);
+    Route::delete('/unidad/{id}', [UnidadController::class, 'destroy']);
+});
+
+
+/* Ariel */
 
 Route::get('/programas', [ProgramaController::class, 'index']);     
 Route::post('/programa', [ProgramaController::class, 'store']);

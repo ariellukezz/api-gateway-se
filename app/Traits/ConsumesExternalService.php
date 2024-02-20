@@ -9,23 +9,25 @@ trait ConsumesExternalService
         try {
             $url = $this->baseUri . $requestUrl;
             
-            // Agregar el ID a la URL si está definido
             if (!is_null($id)) {
                 $url .= '/' . $id;
             }
             
-            // Enviar la solicitud con el método correcto y el cuerpo adecuado
-            if (!is_null($body)) {
+            if (!is_null($body)) {  
                 $response = Http::$method($url, $body);
             } else {
                 $response = Http::$method($url);
             }
+            if(!isset($this->secret)){
+                $header['Authorization'] = $this->secret; 
+            }
     
-            // Devolver la respuesta adecuada
             return $response->json(); // Suponiendo que deseas devolver la respuesta como JSON
         } catch (\Exception $e) {
             return $e->getMessage();
         }
+
     }
+
 }
 
