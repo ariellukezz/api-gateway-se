@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class LoginController extends Controller
 {
     public function showLoginForm(){
-        return 'Login';
+        return 'Loginex';
     }
 
 }

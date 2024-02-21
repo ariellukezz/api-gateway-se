@@ -27,15 +27,17 @@ Route::middleware('client')->group(function () {
     Route::get('/unidad/{id}', [UnidadController::class, 'show']);
     Route::put('/unidad/{id}', [UnidadController::class, 'update']);
     Route::delete('/unidad/{id}', [UnidadController::class, 'destroy']);
+
+    Route::get('/programas', [ProgramaController::class, 'index']);     
+    Route::post('/programa', [ProgramaController::class, 'store']);
+    Route::get('/programa/{id}', [ProgramaController::class, 'show']);
+    Route::put('/programa/{id}', [ProgramaController::class, 'update']);
+    Route::delete('/programa/{id}', [ProgramaController::class, 'destroy']);
 });
 
 
 /* Ariel */
-Route::get('/programas', [ProgramaController::class, 'index']);     
-Route::post('/programa', [ProgramaController::class, 'store']);
-Route::get('/programa/{id}', [ProgramaController::class, 'show']);
-Route::put('/programa/{id}', [ProgramaController::class, 'update']);
-Route::delete('/programa/{id}', [ProgramaController::class, 'destroy']);
+
 
 /* Felix */
 Route::get('/sedes', [SedeController::class, 'index']);
