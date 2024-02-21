@@ -2,6 +2,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UnidadController;
+use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\SedeController;
 use App\Http\Controllers\PagoController;
 use App\Http\Controllers\ProgramaController;
@@ -9,7 +10,6 @@ use App\Http\Controllers\PostulanteController;
 use App\Http\Controllers\ConvocatoriaController;
 use App\Http\Controllers\InstitucionOrigenController;
 use App\Http\Controllers\VacanteController;
-
 use Laravel\Passport\Passport;
 
 // Passport::routes();
@@ -34,8 +34,13 @@ Route::middleware('client')->group(function () {
     Route::put('/programa/{id}', [ProgramaController::class, 'update']);
     Route::delete('/programa/{id}', [ProgramaController::class, 'destroy']);
 });
-/* Ariel */
 
+Route::get('/usuarios', [UsuarioController::class, 'index']);
+Route::post('/usuario', [UsuarioController::class, 'store']);
+Route::get('/usuario/{id}', [UsuarioController::class, 'show']);
+Route::patch('/usuario/{id}', [UsuarioController::class, 'update']);
+Route::delete('/usuario/{id}', [UsuarioController::class, 'destroy']);
+/* Ariel */
 
 /* Felix */
 Route::get('/sedes', [SedeController::class, 'index']);

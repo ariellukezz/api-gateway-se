@@ -13,12 +13,12 @@ class InstitucionOrigenService {
     }
 
     public function obtenerInstitucionesOrigen(){
-        return $this->performRequest('GET', 'institucionorigens');    
+        return $this->performRequest('POST', 'institucionorigens');    
     }
 
     public function crearInstitucionOrigen($body) {
         try {
-            $response = $this->performRequest('POST', 'institucionorigens/', $body);    
+            $response = $this->performRequest('POST', 'institucionorigensstore/', $body);    
             return $response;
         } catch (\Exception $e) {
             return $e->getMessage();

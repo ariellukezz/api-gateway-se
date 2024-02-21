@@ -4,6 +4,11 @@ use Illuminate\Http\Response;
 
 trait ApiResponser
 {
+    public function validResponse($data, $code = Response::HTTP_OK)
+    {
+        return response()->json(['data'=>$data], $code);
+    }
+
     public function successResponse($data, $code = Response::HTTP_OK)
     {
         return response($data, $code)->header('Content-Type','application/json');

@@ -13,12 +13,12 @@ class VacanteService {
     }
 
     public function obtenerVacantes(){
-        return $this->performRequest('GET', 'vacantes');    
+        return $this->performRequest('post', 'vacantes');    
     }
 
     public function crearVacante($body) {
         try {
-            $response = $this->performRequest('POST', 'vacantes/', $body);    
+            $response = $this->performRequest('POST', 'vacantesstore/', $body);    
             return $response;
         } catch (\Exception $e) {
             return $e->getMessage();
