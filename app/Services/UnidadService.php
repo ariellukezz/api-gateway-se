@@ -11,7 +11,7 @@ class UnidadService {
     public function __construct()
     {
         $this->baseUri = config('services.unidades.base_uri');
-        $this->baseUri = config('services.unidades.secret');
+        $this->secret = config('services.unidades.secret');
     }
 
     public function obtenerUnidades(){
