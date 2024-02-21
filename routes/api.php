@@ -34,8 +34,6 @@ Route::middleware('client')->group(function () {
     Route::put('/programa/{id}', [ProgramaController::class, 'update']);
     Route::delete('/programa/{id}', [ProgramaController::class, 'destroy']);
 });
-
-
 /* Ariel */
 
 
