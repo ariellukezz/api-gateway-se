@@ -13,7 +13,7 @@ class ConvocatoriaService {
     }
 
     public function obtenerConvocatorias(){
-        return $this->performRequest('GET', 'mostrar_todos_convocatoria');    
+        return $this->performRequest('POST', 'mostrar_todos_convocatoria');    
     }
 
     public function crearConvocatoria($body) {
@@ -51,5 +51,15 @@ class ConvocatoriaService {
             return $e->getMessage();
         }
     }
+
+    public function buscarConvocatoriaPorNombre($nombre){
+        try {
+            $response = $this->performRequest('get', 'buscar_convocatoria_por_nombre', null, $nombre);
+            return $response;
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
+
 
 }

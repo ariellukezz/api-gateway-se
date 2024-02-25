@@ -7,6 +7,7 @@ use App\Http\Controllers\SedeController;
 use App\Http\Controllers\PagoController;
 use App\Http\Controllers\ProgramaController;
 use App\Http\Controllers\PostulanteController;
+use App\Http\Controllers\TipoDocumentoController;
 use App\Http\Controllers\ConvocatoriaController;
 use App\Http\Controllers\InstitucionOrigenController;
 use App\Http\Controllers\VacanteController;
@@ -18,7 +19,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
+// Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
+// Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
+// Route::post('/register', [App\Http\Controllers\Auth\LoginController::class, 'store']);
+#Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
+#Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
 
 /* Ariel */
 Route::middleware('client')->group(function () {
@@ -38,7 +43,7 @@ Route::middleware('client')->group(function () {
 Route::get('/usuarios', [UsuarioController::class, 'index']);
 Route::post('/usuario', [UsuarioController::class, 'store']);
 Route::get('/usuario/{id}', [UsuarioController::class, 'show']);
-Route::patch('/usuario/{id}', [UsuarioController::class, 'update']);
+Route::put('/usuario/{id}', [UsuarioController::class, 'update']);
 Route::delete('/usuario/{id}', [UsuarioController::class, 'destroy']);
 /* Ariel */
 
@@ -54,6 +59,7 @@ Route::get('/convocatoria/{id}', [ConvocatoriaController::class, 'show']);
 Route::post('/convocatoria', [ConvocatoriaController::class, 'store']);
 Route::patch('/convocatoria/{id}', [ConvocatoriaController::class, 'update']);
 Route::delete('/convocatoria/{id}', [ConvocatoriaController::class, 'destroy']);
+Route::delete('/convocatoria-find-name/{name}', [ConvocatoriaController::class, 'findByName']);
 
 Route::get('/institucionesOrigen', [InstitucionOrigenController::class, 'index']);
 Route::get('/institucionOrigen/{id}', [institucionOrigenController::class, 'show']);
@@ -76,3 +82,16 @@ Route::put('/pago/{id}', [PagoController::class, 'update']);
 /* Denis */
 Route::get('/postulantes', [PostulanteController::class, 'index']);
 Route::post('/postulante', [PostulanteController::class, 'store']);
+
+Route::post('/document-types', [TipoDocumentoController::class, 'index']);
+Route::post('/document-types/data', [TipoDocumentoController::class, 'store']);
+Route::put('/document-types/{id}', [TipoDocumentoController::class, 'update']);
+Route::delete('/document-types/{id}', [TipoDocumentoController::class, 'destroy']);
+
+Route::post('/documents', [DocumentoController::class, 'index']);
+Route::post('/documents/preinscription', [DocumentoController::class, 'documentsPreinscripcion']);
+
+//POST      http://174.138.178.198:8020/api/documents 
+//POST      http://174.138.178.198:8020/api/documents/preinscription
+
+

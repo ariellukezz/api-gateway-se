@@ -29,5 +29,6 @@ return [
     'vacantes' => [ 'base_uri' => env('VACANTES_SERVICE_BASE_URL'), ],
     'pagos' => [ 'base_uri' => env('PAGOS_SERVICE_BASE_URL'), ],
     'institucionorigen' => [ 'base_uri' => env('INSTITUCIONORIGEN_SERVICE_BASE_URL'), ],
-
+    'documento' => [ 'base_uri' => env('DOCUMENTO_SERVICE_BASE_URL'), ],
+    
 ];
