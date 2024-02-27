@@ -5,6 +5,8 @@ use App\Http\Controllers\UnidadController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\SedeController;
 use App\Http\Controllers\PagoController;
+use App\Http\Controllers\UbigeoController;
+use App\Http\Controllers\Auth\Loginontroller;
 use App\Http\Controllers\ProgramaController;
 use App\Http\Controllers\PostulanteController;
 use App\Http\Controllers\TipoDocumentoController;
@@ -12,18 +14,15 @@ use App\Http\Controllers\ConvocatoriaController;
 use App\Http\Controllers\InstitucionOrigenController;
 use App\Http\Controllers\VacanteController;
 use Laravel\Passport\Passport;
-
 // Passport::routes();
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
-// Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
-// Route::post('/register', [App\Http\Controllers\Auth\LoginController::class, 'store']);
-#Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
-#Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
+Route::post('/user', [App\Http\Controllers\Auth\LoginController::class, 'user'])->middleware('auth:api');
+Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->middleware('auth:api');
+Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
 
 /* Ariel */
 Route::middleware('client')->group(function () {
@@ -91,7 +90,10 @@ Route::delete('/document-types/{id}', [TipoDocumentoController::class, 'destroy'
 Route::post('/documents', [DocumentoController::class, 'index']);
 Route::post('/documents/preinscription', [DocumentoController::class, 'documentsPreinscripcion']);
 
+
+Route::post('/get-ubigeo', [UbigeoController::class, 'ubigeoSearch']);
+
+// Route::post('/login', [LoginController::class, 'login']);
+
 //POST      http://174.138.178.198:8020/api/documents 
 //POST      http://174.138.178.198:8020/api/documents/preinscription
-
-

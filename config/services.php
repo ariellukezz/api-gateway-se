@@ -24,6 +24,7 @@ return [
         'secret' => env('UNIDADES_SERVICE_SECRET'),
     ],
     'sedes' => [ 'base_uri' => env('SEDES_SERVICE_BASE_URL'), ],
+    'ubigeos' => [ 'base_uri' => env('UBIGEOS_SERVICE_BASE_URL'), ],
     'postulantes' => [ 'base_uri' => env('POSTULANTES_SERVICE_BASE_URL'), ],
     'convocatorias' => [ 'base_uri' => env('CONVOCATORIAS_SERVICE_BASE_URL'), ],
     'vacantes' => [ 'base_uri' => env('VACANTES_SERVICE_BASE_URL'), ],
