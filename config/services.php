@@ -31,5 +31,6 @@ return [
     'pagos' => [ 'base_uri' => env('PAGOS_SERVICE_BASE_URL'), ],
     'institucionorigen' => [ 'base_uri' => env('INSTITUCIONORIGEN_SERVICE_BASE_URL'), ],
     'documento' => [ 'base_uri' => env('DOCUMENTO_SERVICE_BASE_URL'), ],
+    'reportes' => [ 'base_uri' => env('REPORTES_SERVICE_BASE_URL'), ],
     
 ];

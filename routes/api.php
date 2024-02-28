@@ -6,6 +6,7 @@ use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\SedeController;
 use App\Http\Controllers\PagoController;
 use App\Http\Controllers\UbigeoController;
+use App\Http\Controllers\ReporteController;
 use App\Http\Controllers\Auth\Loginontroller;
 use App\Http\Controllers\ProgramaController;
 use App\Http\Controllers\PostulanteController;
@@ -92,6 +93,8 @@ Route::post('/documents/preinscription', [DocumentoController::class, 'documents
 
 
 Route::post('/get-ubigeo', [UbigeoController::class, 'ubigeoSearch']);
+
+Route::get('/get-solicitud/{c}-{p}-{pos}', [ReporteController::class, 'getSolicitud']);
 
 // Route::post('/login', [LoginController::class, 'login']);
 
