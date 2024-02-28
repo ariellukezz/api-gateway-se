@@ -10,10 +10,11 @@ class ReporteService {
 
     public function __construct()
     {
-        $this->baseUri = config('services.reporte.base_uri');
+        $this->baseUri = config('services.reportes.base_uri');
     }
 
     public function descargarSoliciud($con, $pro, $pos){
+        
         try {
             $response = $this->performRequest('get', 'pdf-solicitud/'.$con.'-'.$pro.'-'.$pos);
             return $response;

@@ -91,7 +91,6 @@ Route::delete('/document-types/{id}', [TipoDocumentoController::class, 'destroy'
 Route::post('/documents', [DocumentoController::class, 'index']);
 Route::post('/documents/preinscription', [DocumentoController::class, 'documentsPreinscripcion']);
 
-
 Route::post('/get-ubigeo', [UbigeoController::class, 'ubigeoSearch']);
 
 Route::get('/get-solicitud/{c}-{p}-{pos}', [ReporteController::class, 'getSolicitud']);
