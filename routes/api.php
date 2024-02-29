@@ -48,7 +48,7 @@ Route::delete('/usuario/{id}', [UsuarioController::class, 'destroy']);
 /* Ariel */
 
 /* Felix */
-Route::get('/sedes', [SedeController::class, 'index']);
+Route::post('/sedes', [SedeController::class, 'index']);
 Route::get('/sede/{id}', [SedeController::class, 'show']);
 Route::post('/sede', [SedeController::class, 'store']);
 Route::patch('/sede/{id}', [SedeController::class, 'update']);

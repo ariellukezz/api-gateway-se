@@ -15,9 +15,9 @@ class SedeController extends Controller
     }
 
 
-    public function index()
+    public function index(Request $request)
     {
-        return $this->successResponse($this->SedeService->obtenerSedes());
+        return $this->successResponse($this->SedeService->obtenerSedes($request));
     }
 
     public function show($id)

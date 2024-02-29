@@ -12,8 +12,8 @@ class SedeService {
         $this->baseUri = config('services.sedes.base_uri');
     }
 
-    public function obtenerSedes(){
-        return $this->performRequest('GET', 'mostrar_todos_sede');    
+    public function obtenerSedes($body){
+        return $this->performRequest('POST', 'mostrar_todos_sede', $body);    
     }
 
     public function crearSede($body) {
