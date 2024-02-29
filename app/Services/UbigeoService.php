@@ -13,7 +13,7 @@ class UbigeoService {
     }
     public function buscarUbigeo($term) {
         try {
-            $response = $this->performRequest('GET', 'search-ubigeo/'+$term);
+            $response = $this->performRequest('GET', 'search-ubigeo/'.$term);
             return $response;
         } catch (\Exception $e) {
             return $e->getMessage();
