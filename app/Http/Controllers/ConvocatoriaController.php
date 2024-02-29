@@ -39,7 +39,7 @@ class ConvocatoriaController extends Controller
         return $this->successResponse($this->ConvocatoriaService->eliminarConvocatoria($id));
     }
 
-    public function findByName($name)
+    public function Buscar($name)
     {
         return $this->successResponse($this->ConvocatoriaService->buscarConvocatoriaPorNombre($name));
     }
