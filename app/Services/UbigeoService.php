@@ -11,9 +11,9 @@ class UbigeoService {
     {
         $this->baseUri = config('services.ubigeos.base_uri');
     }
-    public function buscarUbigeo($body) {
+    public function buscarUbigeo($term) {
         try {
-            $response = $this->performRequest('POST', 'get-ubigeos', $body);
+            $response = $this->performRequest('GET', 'search-ubigeo/'+$term);
             return $response;
         } catch (\Exception $e) {
             return $e->getMessage();

@@ -14,10 +14,9 @@ class UbigeoController extends Controller
         $this->UbigeoService = $UbigeoService;
     }
 
-    public function ubigeoSearch(Request $request)
+    public function ubigeoSearch($term)
     {
-       return $this->successResponse($this->UbigeoService->buscarUbigeo($request));
+       return $this->successResponse($this->UbigeoService->buscarUbigeo($term));
     }
-
 
 }
