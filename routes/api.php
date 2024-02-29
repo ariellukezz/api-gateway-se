@@ -54,7 +54,7 @@ Route::post('/sede', [SedeController::class, 'store']);
 Route::patch('/sede/{id}', [SedeController::class, 'update']);
 Route::delete('/sede/{id}', [SedeController::class, 'destroy']);
 
-Route::get('/convocatorias', [ConvocatoriaController::class, 'index']);
+Route::post('/convocatorias', [ConvocatoriaController::class, 'index']);
 Route::get('/convocatoria/{id}', [ConvocatoriaController::class, 'show']);
 Route::post('/convocatoria', [ConvocatoriaController::class, 'store']);
 Route::patch('/convocatoria/{id}', [ConvocatoriaController::class, 'update']);

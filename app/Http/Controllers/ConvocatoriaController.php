@@ -14,7 +14,7 @@ class ConvocatoriaController extends Controller
         $this->ConvocatoriaService = $ConvocatoriaService;
     }
 
-    public function index()
+    public function index(Request $request)
     {
         return $this->successResponse($this->ConvocatoriaService->obtenerConvocatorias());
     }

@@ -12,8 +12,8 @@ class ConvocatoriaService {
         $this->baseUri = config('services.convocatorias.base_uri');
     }
 
-    public function obtenerConvocatorias(){
-        return $this->performRequest('POST', 'mostrar_todos_convocatoria');    
+    public function obtenerConvocatorias($body){
+        return $this->performRequest('POST', 'mostrar_todos_convocatoria',$body);    
     }
 
     public function crearConvocatoria($body) {
