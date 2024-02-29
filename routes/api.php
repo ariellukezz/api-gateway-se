@@ -59,7 +59,8 @@ Route::get('/convocatoria/{id}', [ConvocatoriaController::class, 'show']);
 Route::post('/convocatoria', [ConvocatoriaController::class, 'store']);
 Route::patch('/convocatoria/{id}', [ConvocatoriaController::class, 'update']);
 Route::delete('/convocatoria/{id}', [ConvocatoriaController::class, 'destroy']);
-Route::delete('/convocatoria-find-name/{name}', [ConvocatoriaController::class, 'findByName']);
+Route::get('/buscar_convocatoria_por_nombre/{buscar}', [ConvocatoriaController::class, 'Buscar']);
+
 
 Route::get('/institucionesOrigen', [InstitucionOrigenController::class, 'index']);
 Route::get('/institucionOrigen/{id}', [institucionOrigenController::class, 'show']);
@@ -96,6 +97,7 @@ Route::get('/search-ubigeo/{term}', [UbigeoController::class, 'ubigeoSearch']);
 //Route::post('/get-ubigeo', [UbigeoController::class, 'ubigeoSearch']);
 
 Route::get('/get-solicitud/{c}-{p}-{pos}', [ReporteController::class, 'getSolicitud']);
+
 
 // Route::post('/login', [LoginController::class, 'login']);
 
