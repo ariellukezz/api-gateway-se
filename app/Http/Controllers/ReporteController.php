@@ -18,24 +18,26 @@ class ReporteController extends Controller
 
     public function descargarPDF($con, $pro, $pos)
     {
+        
         try {
-            $response = Http::get('http://174.138.178.198:8097/api/pdf-solicitud/'.$con.'-'.$pro.'-'.$pos);        
-
+            $response = Http::get('http://174.138.178.198:8097/api/pdf-solicitud/'.$con.'-'.$pro.'-'.$pos);
+    
             if ($response->successful()) {
-                // Obtener el contenido del PDF
                 $pdfContent = $response->body();
-
-                // Devolver el PDF como una respuesta de descarga
-                return response()->streamDownload(function () use ($pdfContent) {
-                    echo $pdfContent;
-                }, 'solicitud.pdf');
+                
+                // Devolver el PDF como descarga en el navegador
+                return response($pdfContent)
+                    ->header('Content-Type', 'application/pdf')
+                    ->header('Content-Disposition', 'attachment; filename="solicitud.pdf"');
             } else {
+                // Manejar el caso en que la respuesta no es exitosa
                 return response('Error al obtener el PDF', $response->status());
             }
         } catch (RequestException $e) {
-            // Capturar y mostrar detalles de la excepción
+            // Manejar errores de solicitud HTTP
             return response('Error al obtener el PDF: ' . $e->getMessage());
         }
+
     }
 
 }
