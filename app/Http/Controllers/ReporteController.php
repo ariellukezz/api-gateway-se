@@ -16,23 +16,26 @@ class ReporteController extends Controller
         $this->ReporteService = $reporteService;
     }
 
-    public function getSolicitud($con, $pro, $pos)
+    public function descargarPDF($con, $pro, $pos)
     {
-        
-        $url = 'http://servicio-reportes-se.test/api/pdf-solicitud/1-1-2';
-
-        $nombreArchivoLocal = 'archivo_descargado.pdf';
-
         try {
+            $response = Http::get('http://174.138.178.198:8097/api/pdf-solicitud/'.$con.'-'.$pro.'-'.$pos);        
 
-            $contenido = file_get_contents($url);
-            Storage::put($nombreArchivoLocal, $contenido);
-            return response()->json(['message' => 'Archivo descargado correctamente', 'nombre_archivo' => $nombreArchivoLocal]);
-        } catch (\Exception $e) {
-            return response()->json(['error' => $e->getMessage()], 500);
+            if ($response->successful()) {
+                // Obtener el contenido del PDF
+                $pdfContent = $response->body();
+
+                // Devolver el PDF como una respuesta de descarga
+                return response()->streamDownload(function () use ($pdfContent) {
+                    echo $pdfContent;
+                }, 'solicitud.pdf');
+            } else {
+                return response('Error al obtener el PDF', $response->status());
+            }
+        } catch (RequestException $e) {
+            // Capturar y mostrar detalles de la excepción
+            return response('Error al obtener el PDF: ' . $e->getMessage());
         }
-
-
     }
 
 }

@@ -15,6 +15,8 @@ use App\Http\Controllers\ConvocatoriaController;
 use App\Http\Controllers\InstitucionOrigenController;
 use App\Http\Controllers\VacanteController;
 use Laravel\Passport\Passport;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Http\Client\RequestException;
 // Passport::routes();
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
@@ -96,7 +98,7 @@ Route::post('/documents/preinscription', [DocumentoController::class, 'documents
 Route::get('/search-ubigeo/{term}', [UbigeoController::class, 'ubigeoSearch']);
 //Route::post('/get-ubigeo', [UbigeoController::class, 'ubigeoSearch']);
 
-Route::get('/get-solicitud/{c}-{p}-{pos}', [ReporteController::class, 'getSolicitud']);
+Route::get('/get-solicitud/{con}-{pro}-{pos}', [ReporteController::class, 'descargarPDF']);
 
 
 // Route::post('/login', [LoginController::class, 'login']);
