@@ -22,7 +22,7 @@ return [
     'unidades' => [ 
         'base_uri' => env('UNIDADES_SERVICE_BASE_URL'), 
         'secret' => env('UNIDADES_SERVICE_SECRET'),
-    ],
+    ], 
     'sedes' => [ 'base_uri' => env('SEDES_SERVICE_BASE_URL'), ],
     'ubigeos' => [ 'base_uri' => env('UBIGEOS_SERVICE_BASE_URL'), ],
     'postulantes' => [ 'base_uri' => env('POSTULANTES_SERVICE_BASE_URL'), ],
@@ -32,5 +32,7 @@ return [
     'institucionorigen' => [ 'base_uri' => env('INSTITUCIONORIGEN_SERVICE_BASE_URL'), ],
     'documento' => [ 'base_uri' => env('DOCUMENTO_SERVICE_BASE_URL'), ],
     'reportes' => [ 'base_uri' => env('REPORTES_SERVICE_BASE_URL'), ],
+    'entrevistas' => [ 'base_uri' => env('ENTREVISTAS_SERVICE_BASE_URL'), ],
+    'evaluacioncv' => [ 'base_uri' => env('EVALUACIONCV_SERVICE_BASE_URL'), ],
     
 ];

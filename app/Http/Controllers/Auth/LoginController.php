@@ -7,10 +7,6 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    public function showLoginForm(){
-        return 'Loginex';
-    }
-
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
@@ -23,8 +19,10 @@ class LoginController extends Controller
         } else {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
+    
     }
 
+    
     // public function register(Request $request)
     // {
     //     $user = User::create([

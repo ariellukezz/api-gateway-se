@@ -14,9 +14,8 @@ class PostulanteController extends Controller
         $this->PostulanteService = $PostulanteService;
     }
 
-
     public function index()
-    {
+    {   
         return $this->successResponse($this->PostulanteService->obtenerPostulantes());
     }
 

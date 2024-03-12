@@ -14,6 +14,7 @@ use App\Http\Controllers\TipoDocumentoController;
 use App\Http\Controllers\ConvocatoriaController;
 use App\Http\Controllers\InstitucionOrigenController;
 use App\Http\Controllers\VacanteController;
+use App\Http\Controllers\EvaluacionCVController;
 use Laravel\Passport\Passport;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Client\RequestException;
@@ -26,6 +27,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::post('/user', [App\Http\Controllers\Auth\LoginController::class, 'user'])->middleware('auth:api');
 Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->middleware('auth:api');
 Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login']);
+
+Route::post('/check-token', function(Request $request) {
+    return response()->json(['estado'=>true],200);
+})->middleware('auth:api');
 
 /* Ariel */
 Route::middleware('client')->group(function () {
@@ -63,7 +68,6 @@ Route::patch('/convocatoria/{id}', [ConvocatoriaController::class, 'update']);
 Route::delete('/convocatoria/{id}', [ConvocatoriaController::class, 'destroy']);
 Route::get('/buscar_convocatoria_por_nombre/{buscar}', [ConvocatoriaController::class, 'Buscar']);
 
-
 Route::get('/institucionesOrigen', [InstitucionOrigenController::class, 'index']);
 Route::get('/institucionOrigen/{id}', [institucionOrigenController::class, 'show']);
 Route::post('/institucionOrigen', [InstitucionOrigenController::class, 'store']);
@@ -100,8 +104,18 @@ Route::get('/search-ubigeo/{term}', [UbigeoController::class, 'ubigeoSearch']);
 
 Route::get('/get-solicitud/{con}-{pro}-{pos}', [ReporteController::class, 'descargarPDF']);
 
+Route::post('/entrevistastore', [InterviewController::class, 'store']);
+Route::patch('/entrevista/{id}', [InterviewController::class, 'update']);
+Route::get('/entrevista/{id}', [InterviewController::class, 'show']);
+// Route::get('/entrevista', [InterviewController::class, 'index']);
+Route::post('/entrevista', [InterviewController::class, 'index']);
+Route::delete('/entrevista/{id}', [InterviewController::class, 'destroy']); 
+Route::get('/entrevista_puntajes/{id}', [InterviewController::class, 'puntajes']);
+Route::post('/entrevista_generar', [InterviewController::class, 'generar']);
+
+
+Route::post('/get-postulantes-cv', [EvaluacionCVController::class, 'getPostulantes'])->middleware('auth:api','admin');
 
 // Route::post('/login', [LoginController::class, 'login']);
-
 //POST      http://174.138.178.198:8020/api/documents 
 //POST      http://174.138.178.198:8020/api/documents/preinscription
